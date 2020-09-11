@@ -26,7 +26,6 @@
 % ex \providecommand{\mystyleloc}{.}
 
 \usepackage{\mystyleloc/base}
-\usepackage{\mystyleloc/astronomy}  % (imports maths as well)
 
 
 % -----------------------------------------------------------------------------
@@ -38,7 +37,6 @@
 \usepackage{lastpage}
 \usepackage{color}
 \usepackage{titlesec}
-% \usepackage{titling}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -77,26 +75,11 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % -----------------------------------------------------------------------------
-% From Jessica Campbell
+
 \newcommand{\linia}{\rule{\linewidth}{0.5pt}}
 \AtBeginDocument{%
    \setlength\abovedisplayskip{-3pt}
    \setlength\belowdisplayskip{5pt}}
-
-% my own titles
-% \makeatletter
-% \renewcommand{\maketitle}{
-% \begin{center}
-% \vspace{2ex}
-% {\huge \textsc{\@title}}
-% \vspace{1ex}
-% \\
-% \linia\\
-% \@author
-% \vspace{4ex}
-% \end{center}
-% }
-% \makeatother
 
 % custom footers and headers
 \pagestyle{fancy}
@@ -104,7 +87,7 @@
 \chead{}
 \rhead{}
 \renewcommand{\headrulewidth}{0pt}
-\lfoot{General Qualifying Exam Solutions}
+\lfoot{}
 \cfoot{}
 \rfoot{Page \thepage\ /\ \pageref*{LastPage}}
 
@@ -128,11 +111,12 @@
 %% Sections formatting
 
 \titleformat{\section}{
-  \vspace{-15pt}\scshape\raggedright\large
+  \newpage\vspace{-15pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
 
 \titleformat{\subsection}{
   \vspace{-5pt}\normalfont\fontsize{13}{15}\bfseries
 }{}{0em}{}[\color{black}\vspace{-3pt}]
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
