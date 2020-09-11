@@ -3,14 +3,16 @@
 
 # ----------------------------------------------------------------------------
 #
-# TITLE   :
+# TITLE   : Example Figure 1
 # AUTHOR  :
 # PROJECT :
 #
 # ----------------------------------------------------------------------------
 
-### Docstring and Metadata
 """**DOCSTRING**
+
+Extended description
+
 """
 
 __author__ = ""
@@ -24,32 +26,45 @@ __author__ = ""
 
 
 ##############################################################################
-### IMPORTS
+# IMPORTS
 
-## General
+# BUILT-IN
 
-## Project-Specific
+# THIRD PARTY
+
+# PROJECT-SPECIFIC
 
 
 ##############################################################################
-### CODE
+# CODE
+
 
 class ClassName(object):
-    """docstring for ClassName"""
+    """Docstring for ClassName."""
 
     def __init__(self, arg):
         super().__init__()
         self.arg = arg
+
+
 # /class
 
 
 # --------------------------------------------------------------------------
 
-def function():
-    """docstring
+
+def function(arg):
+    """Docstring.
+
+    Parameters
+    ----------
+    arg : Any
+
     """
     pass
+
+
 # /def
 
 ##############################################################################
-### END
+# END
