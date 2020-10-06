@@ -10,10 +10,10 @@
 
 """**DOCSTRING**.
 
-description
+This script can be run from the command line with the following parameters:
 
-Routine Listings
-----------------
+Parameters
+----------
 
 """
 
@@ -34,35 +34,18 @@ __author__ = ""
 ##############################################################################
 # IMPORTS
 
-# BUILT-IN
-
-import warnings
 import argparse
-from typing import Optional
-
-
-# THIRD PARTY
-
-from utilipy import LogFile
-
-
-# PROJECT-SPECIFIC
-
+import typing as T
+import warnings
 
 ##############################################################################
 # PARAMETERS
 
 # General
-_PLOT = True  # Plot the output
+_PLOT: bool = True  # Whether to plot the output
 
 # Log file
-_VERBOSE = 0  # Degree of verbosity
-_LOGFILE = LogFile.open(
-    f"./{__file__}.log",
-    header="script",
-    verbose=_VERBOSE,  # File  # script header
-)  # setting as default
-
+_VERBOSE: int = 0  # Degree of logfile verbosity
 
 ##############################################################################
 # CODE
@@ -76,6 +59,8 @@ class ClassName(object):
         """Initialize class."""
         super().__init__()
         self.arg = arg
+
+    # /def
 
 
 # /class
@@ -97,18 +82,35 @@ def function():
 ##############################################################################
 
 
-def make_parser(inheritable=False):
-    """Expose parser for ``main``.
+def make_parser(
+    *, inheritable: bool = False, plot: bool = _PLOT, verbose: int = _VERBOSE
+) -> argparse.ArgumentParser:
+    """Expose ArgumentParser for ``main``.
 
     Parameters
     ----------
-    inheritable: bool
+    inheritable: bool, optional, keyword only
         whether the parser can be inherited from (default False).
         if True, sets ``add_help=False`` and ``conflict_hander='resolve'``
 
+    plot : bool, optional, keyword only
+        Whether to produce plots, or not.
+
+    verbose : int, optional, keyword only
+        Script logging verbosity.
+
     Returns
     -------
-    parser: ArgumentParser
+    parser: |ArgumentParser|
+        The parser with arguments:
+
+        - plot
+        - verbose
+
+    ..
+      RST SUBSTITUTIONS
+
+    .. |ArgumentParser| replace:: `~argparse.ArgumentParser`
 
     """
     parser = argparse.ArgumentParser(
@@ -116,6 +118,12 @@ def make_parser(inheritable=False):
         add_help=~inheritable,
         conflict_handler="resolve" if ~inheritable else "error",
     )
+
+    # plot or not
+    parser.add_argument("--verbose", action="store", default=_PLOT, type=bool)
+
+    # script verbosity
+    parser.add_argument("-v", "--verbose", action="store", default=0, type=int)
 
     return parser
 
@@ -127,16 +135,17 @@ def make_parser(inheritable=False):
 
 
 def main(
-    args: Optional[list] = None, opts: Optional[argparse.Namespace] = None
+    args: T.Union[list, str, None] = None,
+    opts: T.Optional[argparse.Namespace] = None,
 ):
     """Script Function.
 
     Parameters
     ----------
-    args : list, optional
+    args : list or str or None, optional
         an optional single argument that holds the sys.argv list,
         except for the script name (e.g., argv[1:])
-    opts : Namespace, optional
+    opts : `~argparse.Namespace`| or None, optional
         pre-constructed results of parsed args
         if not None, used ONLY if args is None
 
@@ -146,10 +155,13 @@ def main(
     else:
         if opts is not None:
             warnings.warn("Not using `opts` because `args` are given")
+        if isinstance(args, str):
+            args = args.split()
+
         parser = make_parser()
         opts = parser.parse_args(args)
 
-    return
+    # /if
 
 
 # /def
@@ -159,12 +171,12 @@ def main(
 
 if __name__ == "__main__":
 
+    # call script
     main(args=None, opts=None)  # all arguments except script name
+
 
 # /if
 
 
 ##############################################################################
 # END
-
-_LOGFILE.close()
