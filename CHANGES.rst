@@ -15,3 +15,5 @@ Other Changes and Additions
 ---------------------------
 
 - Create PR template [#9]
+
+- Create Feature Request template [#8]
