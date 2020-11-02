@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""Testing :mod:`PACKAGE`."""
+"""Testing :mod:`~PACKAGE`."""
 
 # __all__ = [
 # ]
