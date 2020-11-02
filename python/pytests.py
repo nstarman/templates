@@ -1,18 +1,41 @@
 # -*- coding: utf-8 -*-
 
-"""Testing :mod:`PACKAGE`."""
+"""Testing :mod:`~PACKAGE`."""
 
-# __all__ = [
-# ]
+__all__ = [
+    "Test_ClassName",
+    "test_function",
+]
 
 
 ##############################################################################
 # IMPORTS
 
+# THIRD PARTY
 # import pytest
 
 ##############################################################################
 # PARAMETERS
+
+
+##############################################################################
+# PYTEST
+
+
+def setup_module(module):
+    """Setup module for testing."""
+    pass
+
+
+# /def
+
+
+def teardown_module(module):
+    """Tear-down module for testing."""
+    pass
+
+
+# /def
 
 
 ##############################################################################

@@ -8,9 +8,20 @@ New Features
 python
 ^^^^^^
 
-- clean Jupyter Notebook imports [#3]
-  
 - Python imports type sorting with isort headings [#6, #10]
+
+Jupyter
+*******
+
+- clean Jupyter Notebook imports [#3]
+
+
+Pytest
+******
+  
+- Name file ``pytest.py`` [#5]
+
+- Setup / teardown class tests [#5]
 
 
 Other Changes and Additions
