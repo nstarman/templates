@@ -9,6 +9,8 @@ python
 ^^^^^^
 
 - clean Jupyter Notebook imports [#3]
+  
+- Python imports type sorting with isort headings [#6]
 
 
 Other Changes and Additions
