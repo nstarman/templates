@@ -9,3 +9,9 @@ python
 ^^^^^^
 
 - clean Jupyter Notebook imports [#3]
+
+
+Other Changes and Additions
+---------------------------
+
+- Create PR template [#9]
